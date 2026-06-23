@@ -5,17 +5,17 @@
 ![NumPy](https://img.shields.io/badge/numpy-Numerical_Computing-013243)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Um pipeline preditivo desenvolvido em Python para o Campeonato do Mundo, desenhado com uma arquitetura matemática de nível institucional (Sportsbook Standard). Este algoritmo não apenas gera palpites para bolões, mas calcula probabilidades reais utilizando os mesmos paradigmas das grandes casas de apostas desportivas (como Bet365 e Pinnacle).
+Um pipeline preditivo desenvolvido em Python para o Campeonato do Mundo, desenhado com uma arquitetura matemática de nível institucional (Sportsbook Standard). Este algoritmo não apenas gera palpites para bolões, mas calcula probabilidades reais utilizando os mesmos paradigmas das grandes casas de apostas desportivas.
 
 ## 🚀 Diferenciais e Arquitetura Matemática
 
-Diferente de scripts básicos que confiam apenas em golos passados, este motor foi construído sob as pilastras da Engenharia Quantitativa:
+Diferente de scripts básicos que confiam apenas em gols passados, este motor foi construído sob as pilares da Engenharia Quantitativa:
 
 * 📊 **Ingestão Autônoma (Scraping Avançado):** Conecta-se diretamente à API oculta da ESPN, puxando o chaveamento atualizado e resultados ao vivo da Copa, com disfarce de *User-Agent* e estratégia de retentativas (*Backoff*).
-* 📈 **Elo Rating Dinâmico e Retrospecto Histórico:** As equipas não começam do zero. O algoritmo converte a posição oficial do Ranking da FIFA numa curva logarítmica de força inicial (Base Elo). A cada jogo encerrado, o Rating é atualizado dinamicamente usando um modelo Bayesiano (K-Factor).
-* 🧠 **Distribuição de Poisson & Ajuste de Dixon-Coles:** Calcula a expectativa de golos (xG) de cada equipa e aplica a Função Paramétrica de Dixon-Coles ($\rho = 0.18$) para corrigir o "desprezo" matemático por empates, modelando perfeitamente a retranca do futebol real (jogos como 0x0 e 1x1).
+* 📈 **Elo Rating Dinâmico e Retrospecto Histórico:** As equipes não começam do zero. O algoritmo converte a posição oficial do Ranking da FIFA numa curva logarítmica de força inicial (Base Elo). A cada jogo encerrado, o Rating é atualizado dinamicamente usando um modelo Bayesiano (K-Factor).
+* 🧠 **Distribuição de Poisson & Ajuste de Dixon-Coles:** Calcula a expectativa de golos (xG) de cada equipe e aplica a Função Paramétrica de Dixon-Coles ($\rho = 0.18$) para corrigir o "desprezo" matemático por empates, modelando perfeitamente a retranca do futebol real (jogos como 0x0 e 1x1).
 * 🎲 **Simulação de Monte Carlo:** A malha estatística joga virtualmente cada partida **10.000 vezes** utilizando matrizes do NumPy para extrair o cume da densidade probabilística (o placar mais provável).
-* 💰 **Mercados de Apostas Embutidos:** Retorna automaticamente as probabilidades reais para os mercados de **Over 2.5 Golos** e **BTTS** (Ambas Marcam).
+* 💰 **Mercados de Apostas Embutidos:** Retorna automaticamente as probabilidades reais para os mercados de **Over 2.5 Gols** e **BTTS** (Ambas Marcam).
 
 ## 🛠️ Instalação e Requisitos
 
@@ -45,7 +45,7 @@ urllib3>=1.26.15
 
 ## 💻 Como Usar
 
-Com as bibliotecas instaladas, basta correr o script principal. Ele fará o download dos dados mais recentes, calculará o Elo de todas as equipas e imprimirá no terminal a previsão dos próximos jogos ainda não iniciados.
+Com as bibliotecas instaladas, basta executar o script principal. Ele fará o download dos dados mais recentes, calculará o Elo de todas as equipas e imprimirá no terminal a previsão dos próximos jogos ainda não iniciados.
 ```
 python bolao_copa_pro.py
 ```
@@ -65,7 +65,7 @@ Exemplo de Output do Terminal
 
 * xG (Expected Goals): Quantos gols o modelo matemático espera que cada equipa marque pela sua força absoluta.
 
-* Top 3 Placares: O Top 1 é o placar recomendado para o seu Bolão. O Top 2 e Top 3 ajudam-no a perceber se vale a pena arriscar uma diferença de golos para se destacar dos seus amigos.
+* Top 3 Placares: O Top 1 é o placar recomendado para o seu Bolão. O Top 2 e Top 3 ajudam-no a perceber se vale a pena arriscar uma diferença de gols  para se destacar dos seus amigos.
 
 * Palpite de Valor: O algoritmo possui um "Threshold de Empate" de 12%. Se as probabilidades de vitória das duas equipas forem demasiado próximas, o sistema ignorará pequenos favoritismos irreais e apontará o "Empate Técnico".
 
